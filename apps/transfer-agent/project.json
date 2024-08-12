@@ -1,0 +1,26 @@
+{
+  "name": "transfer-agent",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/transfer-agent/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "transfer-agent:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "transfer-agent:build:development"
+        },
+        "production": {
+          "buildTarget": "transfer-agent:build:production"
+        }
+      }
+    }
+  }
+}

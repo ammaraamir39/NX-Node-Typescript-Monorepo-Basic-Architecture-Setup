@@ -1,0 +1,26 @@
+{
+  "name": "issuer",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/issuer/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "issuer:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "issuer:build:development"
+        },
+        "production": {
+          "buildTarget": "issuer:build:production"
+        }
+      }
+    }
+  }
+}

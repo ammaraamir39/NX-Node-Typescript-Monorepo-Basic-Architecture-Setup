@@ -1,0 +1,26 @@
+{
+  "name": "clearing-broker",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/clearing-broker/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "clearing-broker:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "clearing-broker:build:development"
+        },
+        "production": {
+          "buildTarget": "clearing-broker:build:production"
+        }
+      }
+    }
+  }
+}
