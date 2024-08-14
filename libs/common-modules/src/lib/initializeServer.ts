@@ -7,10 +7,10 @@ import logger from '../utils/logger';
 import Mongo from './config/dbConfig';
 import { nodeEnv, webUrl } from './config/envConfigs';
 
-interface ServerOptions {
+export interface ServerOptions {
   appName: string; // The name of the application
   router: Router; // The router specific to the application
-  port: string;
+  port: number;
   middleware?: Array<(app: Express) => void>; // Optional array of middleware functions
   afterDbConnect?: () => void; // Optional callback to run after DB connection
 }
@@ -26,7 +26,7 @@ export async function initializeServer({
   const server = http.createServer(app);
   const PORT = port || 3000;
 
-  // Apply custom middleware if provided
+  // custom middleware if provided
   middleware.forEach((mw) => mw(app));
 
   app.get('/', (req: Request, res: Response) => {

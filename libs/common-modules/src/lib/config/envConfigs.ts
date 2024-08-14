@@ -13,3 +13,6 @@ export const nodeEnv = process.env['ENV'];
 
 /**WEB URLS */
 export const webUrl = process.env['WEB_URL'];
+
+/**PORTS */
+export const authAppPort = process.env['AUTH_APP_PORT'];
